@@ -1,5 +1,6 @@
 
 public func bubbleSort<Element>(_ array: inout [Element]) where Element: Comparable {
+// 元素数量少于两个无需进行排序
     guard array.count >= 2 else {
         return
     }
@@ -16,3 +17,9 @@ public func bubbleSort<Element>(_ array: inout [Element]) where Element: Compara
         }
     }
 }
+
+/*:
+ 冒泡排序的时间复杂度：
+ - 最好的表现是O(n)，在数组已经排好序的情况下。
+ - 最差的表现是O(n²)。
+*/
