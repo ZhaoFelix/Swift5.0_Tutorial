@@ -27,6 +27,7 @@ public struct Heap<Element: Equatable> {
         self.elements = elements
         
         if !elements.isEmpty {
+            
             for i in stride(from: elements.count / 2 - 1, through: 0, by: -1) {
                 siftDown(from: i)
             }
@@ -169,6 +170,7 @@ public struct Heap<Element: Equatable> {
     public func search(of element: Element) -> Bool {
         elements.contains(element)
     }
+    
     
 }
 
