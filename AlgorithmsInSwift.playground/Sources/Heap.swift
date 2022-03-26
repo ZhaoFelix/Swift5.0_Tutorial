@@ -146,7 +146,7 @@ public struct Heap<Element: Equatable> {
     
     // 搜索一个元素在堆中的索引
     public func index(of element: Element, startingAt i: Int) -> Int? {
-        if i > count {
+        if i >= count {
             return nil
         }
         // 如果搜索的元素优先权小于对应所有的优先权，则说明该值不在以该索引为根节点的子树
@@ -164,6 +164,10 @@ public struct Heap<Element: Equatable> {
             return j
         }
         return nil
+    }
+    // 判断一个元素是否在堆中
+    public func search(of element: Element) -> Bool {
+        elements.contains(element)
     }
     
 }

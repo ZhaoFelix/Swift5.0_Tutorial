@@ -8,5 +8,5 @@ insertionSort(&array)
 
 
 var heap = Heap(sort: >, elements: [10, 4, 3, 2, 7, 1, 8, 5])
-print(heap[heap.parentIndex(ofChildAt: 4)])
+print(heap.index(of: 4, startingAt: 0))
 
