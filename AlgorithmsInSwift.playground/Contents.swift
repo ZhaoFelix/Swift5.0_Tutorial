@@ -165,6 +165,58 @@ func sumFromOne(withMath n:Int) -> Int {
 
 
 
+/*
+ 空间复杂度
+ */
+
+/// 空间复杂度为O(n)
+/// `array.sorted()`创建了一个和原数组长度相同的数据用来存储排序后的数组对象。
+func printSorted(_ array: [Int]) {
+    let sorted = array.sorted()
+    for element in sorted {
+        print(element)
+    }
+}
+
+func printSorted(array: [Int]) {
+    guard !array.isEmpty else {
+        return
+    }
+    
+    var currentCount = 0 // 记录输出的个数
+    var minValue = Int.min
+    
+    // 循环遍历打印出最小值
+    for value in array {
+        if value == minValue {
+            print(value)
+            currentCount += 1
+        }
+    }
+    
+    while currentCount < array.count {
+        // 获取数组中的最大值
+        var currentValue = array.max()!
+        
+        
+        for value in array {
+            if value < currentValue && value > minValue {
+                currentValue = value
+            }
+        }
+        
+        for value in array {
+            if value == currentValue {
+                print(value)
+                currentCount += 1
+            }
+        }
+        
+        minValue = currentValue
+    }
+    
+}
+
 
 
 
