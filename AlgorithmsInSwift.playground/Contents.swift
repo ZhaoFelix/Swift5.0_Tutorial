@@ -15,7 +15,7 @@ var heap = Heap(sort: >, elements: [10, 4, 3, 2, 7, 1, 8, 5])
 
 // 包括上限值
 for i in stride(from: 0, through: 10, by: 2) {
-        print(i)
+    print(i)
 }
 // 不包括上限值
 print("---------")
@@ -60,4 +60,84 @@ var waitlistPriorityQueue = PriorityQueue(sort: tswiftSort, elements: waitlist)
 while !waitlistPriorityQueue.isEmpty! {
     print(waitlistPriorityQueue.dequeue())
 }
+
+/*
+ 时间复杂度
+ 
+ 1、常数级的时间复杂度
+ 无论数据如何增加或者减少，算法的时间复杂度都是常数，即O(1)。
+ 
+ 2、线性级的时间复杂度
+ O(n)，n表示数据量
+ 
+ 3、指数级的时间复杂度
+ O(n²)
+ 
+ 4、对数级的时间复杂度
+ O(logn)
+ 
+ 5、 准线性的时间复杂度
+ O(n logn)
+ */
+
+/// 常数级的时间复杂度
+func checkFirst(names: [String]) {
+    if let first = names.first {
+        print(first)
+    } else {
+        print("no names")
+    }
+}
+
+/// 线性级的时间复杂度
+/// 时间复杂度O(n)，n表示数组的长度
+func printNames(names: [String]) {
+    for name in names {
+        print(name)
+    }
+}
+
+/// 指数级的时间复杂度
+func prinNames(_ names: [String]) {
+    for _ in names {
+        for name in names {
+            print(name)
+        }
+    }
+}
+
+// 判断一个元素是否在数组中
+// 对于一个无序的数组，这样查找的时间复杂度是O(n)
+// 如果我们对数组排序后，对排序后的数组进行查找的时间复杂度是O(logn)
+
+let numbers = [1, 3, 4, 5, 66, 67, 99, 450]
+func naiveContains(_ value: Int, in array: [Int]) -> Bool {
+    guard !array.isEmpty else {
+        return false
+    }
+    let middleIndex = array.count / 2
+    if value <= array[middleIndex] {
+        for i in 0..<middleIndex {
+            if array[i] == value {
+                return true
+            }
+        }
+    } else {
+        for i in middleIndex..<array.count {
+            if array[i] == value {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+
+
+
+
+
+
+
+
 
