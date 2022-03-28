@@ -133,6 +133,40 @@ func naiveContains(_ value: Int, in array: [Int]) -> Bool {
 }
 
 
+/*
+  时间复杂度比较
+ 1、计算1到n的累加和
+ 
+ 在方法一和方法二时间复杂度相同的情况下，因为方法二调用了标准库中被编译的代码，所以方法二会更快。
+ 方法三使用等差数列求和公式将时间复杂度优化到O(1)。
+ */
+
+/// 方法一
+/// 时间复杂度O(n)
+func sumFromOne(whithLoop n:Int) -> Int {
+    var result = 0
+    for i in 1...n {
+        result += i
+    }
+    return result
+}
+
+/// 方法二
+/// 时间复杂度O(n)
+func sumFromOne(withReduce n:Int) -> Int {
+    (1...n).reduce(0, +)
+}
+
+/// 方法三
+/// 时间复杂度O(1)
+func sumFromOne(withMath n:Int) -> Int {
+    n*(n+1)/2
+}
+
+
+
+
+
 
 
 
