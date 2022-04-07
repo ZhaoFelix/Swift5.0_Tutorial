@@ -15,6 +15,11 @@
 		DC4F0C5627FD93260080FF83 /* DailyScrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F0C5527FD93260080FF83 /* DailyScrum.swift */; };
 		DC4F0C5827FD93310080FF83 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F0C5727FD93310080FF83 /* Theme.swift */; };
 		DC4F0C5A27FD937A0080FF83 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F0C5927FD937A0080FF83 /* TrailingIconLabelStyle.swift */; };
+		DC4F0C5C27FD990E0080FF83 /* ScrumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F0C5B27FD990E0080FF83 /* ScrumsView.swift */; };
+		DC4F0C5E27FDA2E00080FF83 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F0C5D27FDA2E00080FF83 /* DetailView.swift */; };
+		DC4F0C6027FDBE3D0080FF83 /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F0C5F27FDBE3D0080FF83 /* DetailEditView.swift */; };
+		DC4F0C6227FE5D6C0080FF83 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F0C6127FE5D6C0080FF83 /* ThemeView.swift */; };
+		DC4F0C6427FE5E6B0080FF83 /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F0C6327FE5E6B0080FF83 /* ThemePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		DC4F0C5527FD93260080FF83 /* DailyScrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrum.swift; sourceTree = "<group>"; };
 		DC4F0C5727FD93310080FF83 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DC4F0C5927FD937A0080FF83 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
+		DC4F0C5B27FD990E0080FF83 /* ScrumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumsView.swift; sourceTree = "<group>"; };
+		DC4F0C5D27FDA2E00080FF83 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		DC4F0C5F27FDBE3D0080FF83 /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
+		DC4F0C6127FE5D6C0080FF83 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		DC4F0C6327FE5E6B0080FF83 /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +71,16 @@
 			children = (
 				DC4F0C5227FD925F0080FF83 /* Models */,
 				DC4F0C4427FD92430080FF83 /* ScrumDinger_iOSApp.swift */,
+				DC4F0C5F27FDBE3D0080FF83 /* DetailEditView.swift */,
 				DC4F0C4A27FD92460080FF83 /* Preview Content */,
 				DC4F0C5327FD92C00080FF83 /* CardView.swift */,
 				DC4F0C4627FD92430080FF83 /* MeetingView.swift */,
 				DC4F0C4827FD92460080FF83 /* Assets.xcassets */,
 				DC4F0C5927FD937A0080FF83 /* TrailingIconLabelStyle.swift */,
+				DC4F0C5B27FD990E0080FF83 /* ScrumsView.swift */,
+				DC4F0C5D27FDA2E00080FF83 /* DetailView.swift */,
+				DC4F0C6127FE5D6C0080FF83 /* ThemeView.swift */,
+				DC4F0C6327FE5E6B0080FF83 /* ThemePicker.swift */,
 			);
 			path = ScrumDinger_iOS;
 			sourceTree = "<group>";
@@ -157,11 +172,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4F0C6427FE5E6B0080FF83 /* ThemePicker.swift in Sources */,
 				DC4F0C5627FD93260080FF83 /* DailyScrum.swift in Sources */,
+				DC4F0C5E27FDA2E00080FF83 /* DetailView.swift in Sources */,
+				DC4F0C6027FDBE3D0080FF83 /* DetailEditView.swift in Sources */,
 				DC4F0C5A27FD937A0080FF83 /* TrailingIconLabelStyle.swift in Sources */,
 				DC4F0C4727FD92430080FF83 /* MeetingView.swift in Sources */,
+				DC4F0C5C27FD990E0080FF83 /* ScrumsView.swift in Sources */,
 				DC4F0C5827FD93310080FF83 /* Theme.swift in Sources */,
 				DC4F0C5427FD92C00080FF83 /* CardView.swift in Sources */,
+				DC4F0C6227FE5D6C0080FF83 /* ThemeView.swift in Sources */,
 				DC4F0C4527FD92430080FF83 /* ScrumDinger_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

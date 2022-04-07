@@ -8,13 +8,14 @@
 import Foundation
 import SwiftUI
 
-enum Theme: String {
+enum Theme: String, CaseIterable, Identifiable {
+    
     case bubblegum
-    case buttoncup
+    case buttercup
     case indigo
     case lavender
-    case navy
     case magenta
+    case navy
     case orange
     case oxblood
     case periwinkle
@@ -28,14 +29,19 @@ enum Theme: String {
     
     var accentColor: Color {
         switch self {
-        case .bubblegum, .buttoncup, .lavender, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .teal, .yellow:
-            return .black
-        case .indigo, .magenta, .navy, .oxblood, .purple:
-            return .white
+        case .bubblegum, .buttercup, .lavender, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .teal, .yellow: return .black
+        case .indigo, .magenta, .navy, .oxblood, .purple: return .white
         }
     }
-    /// 使用枚举的`rawValue`创建mainColor属性
     var mainColor: Color {
         Color(rawValue)
+    }
+    
+    var name: String {
+        rawValue.capitalized
+    }
+  // 使用name作为后续遍历的ID
+    var id: String {
+        name
     }
 }
