@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct ScrumsView: View {
+    // 定义一个绑定数据
     @Binding var scrums: [DailyScrum]
     var body: some View {
         List {
             ForEach($scrums) { $scrum in
                 NavigationLink(destination: DetailView(scrum: $scrum)) {
+                    // CardView页面不需要使用绑定数据
                     CardView(scrum: scrum)
                 }
                 .listRowBackground(scrum.theme.mainColor)
