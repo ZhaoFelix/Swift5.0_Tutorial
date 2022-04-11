@@ -11,6 +11,8 @@ import SwiftUI
 struct ScrumsView: View {
     // 定义一个绑定数据
     @Binding var scrums: [DailyScrum]
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: () -> Void
     @State private var isPresentingScrumView = false
     @State private var newScrumData = DailyScrum.Data()
     var body: some View {
@@ -53,13 +55,19 @@ struct ScrumsView: View {
                 }
             }
         }
+        // 当页面场景处于inactive状态时，触发数据存储事件
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive {
+                saveAction()
+            }
+        }
     }
 }
 
 struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ScrumsView(scrums: .constant(DailyScrum.sampleData))
+            ScrumsView(scrums: .constant(DailyScrum.sampleData), saveAction: {})
         }
     }
 }
