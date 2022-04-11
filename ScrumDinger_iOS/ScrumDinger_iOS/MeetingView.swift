@@ -20,8 +20,7 @@ struct MeetingView: View {
             VStack {
                 MeetingHeaderView(secondsElapsed: scrumTimer.secondsElapsed, secondsReamaining: scrumTimer.secondsRemaining, theme: scrum.theme)
                 // -TODO:2
-                Circle()
-                    .strokeBorder(lineWidth: 24)
+                MeetingTimerView(speakers: scrumTimer.speakers, theme: scrum.theme)
                 MeetingFooterView(speakers: scrumTimer.speakers, skipSction: scrumTimer.skipSpeaker)
             }
         }
