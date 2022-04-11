@@ -14,6 +14,7 @@ struct DailyScrum: Identifiable {
     var attendees: [Attendee]
     var lengthInMinutes: Int
     var theme: Theme
+    var history: [History] = []
     init(id: UUID = UUID(), title: String, attendees: [Attendee], lengthInMinutes: Int, theme: Theme) {
         self.id = id
         self.title = title
@@ -50,6 +51,14 @@ extension DailyScrum {
         lengthInMinutes = Int(data.lengthInMinutes)
         theme = data.theme
     }
+    init(data: Data) {
+        id = UUID()
+        title = data.title
+        attendees = data.attendees
+        theme = data.theme
+        lengthInMinutes = Int(data.lengthInMinutes)
+    }
+    
 }
 
 // 增加测试数据

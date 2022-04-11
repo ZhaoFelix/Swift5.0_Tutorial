@@ -60,6 +60,10 @@ class ScrumTimer: ObservableObject {
         timerStopped = true
     }
     
+    func skipSpeaker() {
+        changeToSpeaker(at: speakerIndex + 1)
+    }
+    
     private func changeToSpeaker(at index: Int) {
         if index > 0 {
             let previousSpeakerIndex = index - 1

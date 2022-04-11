@@ -41,6 +41,20 @@ struct DetailView: View {
                         Label(attendee.name, systemImage: "person")
                     }
                 }
+                // 历史记录
+                Section(header: Text("History")) {
+                    if scrum.history.isEmpty {
+                        Label("No metting yet", systemImage: "calendar.badge.exclamationmark")
+                    }
+                    ForEach(scrum.history) { history in
+                        HStack{
+                            Image(systemName: "calendar")
+                            // 显示历史日期
+                            Text(history.date, style: .date)
+                        }
+                        
+                    }
+                }
                 
             }
         }
