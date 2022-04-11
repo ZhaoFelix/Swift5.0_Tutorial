@@ -43,11 +43,11 @@ class ScrumStore: ObservableObject {
     }
     
     static func load() async throws -> [DailyScrum] {
-        try await withCheckedContinuation { continuation in
+        try await withCheckedThrowingContinuation{ continuation in
             load { result in
                 switch result {
                 case .failure(let error):
-                    continuation.resume(throwing: error as! Never)
+                    continuation.resume(throwing: error)
                 case .success(let scrums):
                     continuation.resume(returning: scrums)
                 }
@@ -75,11 +75,11 @@ class ScrumStore: ObservableObject {
     
     @discardableResult
     static func save(scrums: [DailyScrum]) async throws -> Int {
-        try await withCheckedContinuation { continuation in
+        try await withCheckedThrowingContinuation { continuation in
             save(scrums: scrums) { result in
                 switch result {
                 case .failure(let error):
-                    continuation.resume(throwing: error as! Never)
+                    continuation.resume(throwing: error)
                 case .success(let scrumSaved):
                     continuation.resume(returning: scrumSaved)
                 }
