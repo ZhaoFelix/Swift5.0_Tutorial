@@ -42,6 +42,19 @@ class ScrumStore: ObservableObject {
         }
     }
     
+    static func load() async throws -> [DailyScrum] {
+        try await withCheckedContinuation { continuation in
+            load { result in
+                switch result {
+                case .failure(let error):
+                    continuation.resume(throwing: error as! Never)
+                case .success(let scrums):
+                    continuation.resume(returning: scrums)
+                }
+            }
+        }
+    }
+    
     /// 存储数据
     static func save(scrums: [DailyScrum], completion: @escaping(Result<Int, Error>) -> Void) {
         DispatchQueue.global(qos: .background).sync {
@@ -55,6 +68,20 @@ class ScrumStore: ObservableObject {
             } catch {
                 DispatchQueue.main.sync {
                     completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    @discardableResult
+    static func save(scrums: [DailyScrum]) async throws -> Int {
+        try await withCheckedContinuation { continuation in
+            save(scrums: scrums) { result in
+                switch result {
+                case .failure(let error):
+                    continuation.resume(throwing: error as! Never)
+                case .success(let scrumSaved):
+                    continuation.resume(returning: scrumSaved)
                 }
             }
         }
