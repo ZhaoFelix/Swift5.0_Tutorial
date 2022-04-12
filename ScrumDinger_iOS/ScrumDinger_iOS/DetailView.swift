@@ -47,10 +47,12 @@ struct DetailView: View {
                         Label("No metting yet", systemImage: "calendar.badge.exclamationmark")
                     }
                     ForEach(scrum.history) { history in
-                        HStack{
-                            Image(systemName: "calendar")
-                            // 显示历史日期
-                            Text(history.date, style: .date)
+                        NavigationLink(destination: HistoryView(history: history)) {
+                            HStack{
+                                Image(systemName: "calendar")
+                                // 显示历史日期
+                                Text(history.date, style: .date)
+                            }
                         }
                         
                     }

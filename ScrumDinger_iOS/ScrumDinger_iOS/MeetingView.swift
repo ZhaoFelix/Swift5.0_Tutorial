@@ -12,6 +12,9 @@ import AVFoundation
 struct MeetingView: View {
     @Binding var scrum: DailyScrum
     @StateObject var scrumTimer = ScrumTimer()
+    @StateObject var speechRecognizer = SpeechRecognizer()
+    @State private var isRecording = false
+    
     private var player: AVPlayer { AVPlayer.sharedDingPlayer }
     var body: some View {
         ZStack {
@@ -20,7 +23,7 @@ struct MeetingView: View {
             VStack {
                 MeetingHeaderView(secondsElapsed: scrumTimer.secondsElapsed, secondsReamaining: scrumTimer.secondsRemaining, theme: scrum.theme)
                 // -TODO:2
-                MeetingTimerView(speakers: scrumTimer.speakers, theme: scrum.theme)
+                MeetingTimerView(speakers: scrumTimer.speakers, theme: scrum.theme, isRecording: isRecording)
                 MeetingFooterView(speakers: scrumTimer.speakers, skipSction: scrumTimer.skipSpeaker)
             }
         }
@@ -33,14 +36,21 @@ struct MeetingView: View {
                 player.seek(to: .zero)
                 player.play()
             }
+            // 语音识别
+            speechRecognizer.reset()
+            speechRecognizer.transcribe()
+            isRecording = true
             //  开始一个新的计时器
             scrumTimer.startScrum()
         }
         // 页面消失时停止计时器
         .onDisappear {
             scrumTimer.stopScrum()
-            // 页面小消失后，添加历史记录
-            let newHistory = History(attendees: scrum.attendees, lengthInMinutes: scrumTimer.secondsElapsed / 60)
+            // 页面消失后关闭语音识别
+            speechRecognizer.stopTranscribing()
+            isRecording = false
+            // 页面消失后，添加历史记录
+            let newHistory = History(attendees: scrum.attendees, lengthInMinutes: scrumTimer.secondsElapsed / 60, transcript: speechRecognizer.transcript)
             scrum.history.insert(newHistory, at: 0)
             
         }
