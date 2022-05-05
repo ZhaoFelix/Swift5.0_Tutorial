@@ -218,6 +218,53 @@ func printSorted(array: [Int]) {
 }
 
 
+/// 栈相关
+
+var stack = Stack<Int>()
+stack.push(1)
+stack.push(2)
+print(stack)
+
+func example() {
+    if let poppedElement = stack.pop() {
+        assert(4 == poppedElement)
+        print("Popped: \(poppedElement)")
+    }
+}
+
+
+// 栈的相关应用
+// 倒置一个数组
+func printInReverse<T>(_ array: [T]) {
+    var stack = Stack<T>()
+    
+    for value in array {
+        stack.push(value)
+    }
+    
+    while let value  = stack.pop() {
+        print(value)
+    }
+}
+
+
+// 判断一个字符串中的圆括号是否成对存在
+func checkParentheses(_ string: String ) -> Bool {
+    var stack = Stack<Character>()
+    for character in string {
+        if character == "(" {
+            stack.push(character)
+        } else if character == ")" {
+            if stack.isEmpty {
+                return false
+            } else {
+                stack.pop()
+            }
+        }
+    }
+    return stack.isEmpty
+}
+
 
 
 

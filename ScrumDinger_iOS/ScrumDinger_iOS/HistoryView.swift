@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// Command + Option +  P
 struct HistoryView: View {
     let history: History
     var body: some View {

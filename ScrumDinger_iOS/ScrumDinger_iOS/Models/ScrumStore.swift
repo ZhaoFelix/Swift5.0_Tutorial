@@ -9,12 +9,14 @@ import Foundation
 import SwiftUI
 
 class ScrumStore: ObservableObject {
+    
     @Published var scrums: [DailyScrum] = []
     
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("scrums.data")
     }
+    
     /// 加载数据
     static func load(completion: @escaping (Result<[DailyScrum], Error>) -> Void) {
         // FIFO，后台任务拥有最低的优先级
