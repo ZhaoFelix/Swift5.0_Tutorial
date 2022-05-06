@@ -249,6 +249,7 @@ func printInReverse<T>(_ array: [T]) {
 
 
 // 判断一个字符串中的圆括号是否成对存在
+// 时间和空间复杂度均为O(n)
 func checkParentheses(_ string: String ) -> Bool {
     var stack = Stack<Character>()
     for character in string {
@@ -265,12 +266,39 @@ func checkParentheses(_ string: String ) -> Bool {
     return stack.isEmpty
 }
 
+checkParentheses("(34543)")
 
 
 
+// 链式表
 
+let node1 = Node(value: 1)
+let node2 = Node(value: 2)
+node1.next = node2
+print(node1)
 
+var linkedList = LinkedList<Int>()
+linkedList.push(1)
+linkedList.push(2)
+linkedList.push(3)
+linkedList.append(4)
 
+var middleNode = linkedList.node(at: 1)!
+middleNode = linkedList.insert(-1, afater: middleNode)
+print(linkedList)
+// 通过扩展实现Collection协议，实现链表的索引访问
+print(linkedList[linkedList.startIndex])
+print(linkedList.startIndex)
+print(linkedList.endIndex)
+print(Array(linkedList.prefix(3)))
 
+// 判断一个节点是否被引用共享
+print(isKnownUniquelyReferenced(&linkedList.head))
+var linkedList2 = linkedList
+linkedList.append(11)
+print(linkedList2)
+print(linkedList)
 
-
+let node = linkedList2.node(at: 0)
+linkedList2.remove(after: node!)
+print(linkedList2)
