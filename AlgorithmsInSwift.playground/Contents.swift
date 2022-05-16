@@ -302,3 +302,46 @@ print(linkedList)
 let node = linkedList2.node(at: 0)
 linkedList2.remove(after: node!)
 print(linkedList2)
+
+//链表的应用
+
+// 1、倒序打印链表
+
+private func printInReverse<T>(_ node: Node<T>?) {
+    guard let node = node else { return }
+    // 递归调用
+    printInReverse(node.next)
+    print(node.value)
+}
+
+printInReverse(linkedList.head)
+
+
+// 2、获取链表的中心节点
+
+func getMiddle<T>(_ list: LinkedList<T>) -> Node<T>? {
+    // 原理：快慢指针，快指针的移动速度始终是慢指针的两倍。、快指针移动到末尾时，慢指针指向的节点即为中心节点。
+    var slow = list.head
+    var fast = list.head
+    
+    while let nextFast = fast?.next {
+        fast = nextFast.next
+        slow = slow?.next
+    }
+    return slow
+}
+
+print(linkedList)
+// 链表翻转
+linkedList.reverse()
+print(linkedList)
+
+
+// 树相关
+
+let beverages = TreeNode("Beverages")
+let hot = TreeNode("hot")
+let cold = TreeNode("Cold")
+beverages.add(hot)
+beverages.add(cold)
+

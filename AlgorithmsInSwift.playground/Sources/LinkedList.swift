@@ -194,7 +194,33 @@ extension LinkedList: CustomStringConvertible {
     }
 }
 
+// 链表翻转
+extension LinkedList {
+    // 时间和空间复杂度O(n), n为链表长度。
+   public mutating func reverse() {
+        var temList = LinkedList<Value>()
+        for value in self {
+            temList.push(value)
+        }
+        head = temList.head
+    }
+    
+    mutating func reverseSimple() {
+        tail = head
+        var prev = head
+        var current = head?.next
+        prev?.next = nil
+        while current != nil {
+            let next = current?.next
+            current?.next = prev
+            prev = current
+            current = next
+        }
+    }
+    
+}
 
+// TODO: 集合相关的扩展
 
 extension LinkedList: Collection {
 
